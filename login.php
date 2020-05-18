@@ -18,6 +18,7 @@ require 'config.php'
     </header>
     <section class="container main">
         <form method="POST" action="<?=$base;?>/login_action.php">
+        <h2>Login</h2>
         <?php if (!empty($_SESSION['flash'])):?>
             <?='<p>'.$_SESSION['flash'].'</p>';?>
             <?php $_SESSION['flash'] = '';?>
