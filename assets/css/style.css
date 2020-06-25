@@ -139,6 +139,7 @@ header .head-side {
 .menu-item:hover, .menu-item.active {
     background-color:#d1d9e0;
     border:1px solid #CCC;
+    font-weight: 600;
 }
 .menu-item-icon {
     width:16px;
