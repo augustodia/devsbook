@@ -1,5 +1,7 @@
 <?php
 require_once 'models/Post.php';
+require_once 'dao/UserRelationDAOMySql.php';
+require_once 'dao/UserDAOMySql.php';
 
 class PostDAOMySql implements PostDAO {
     private $pdo;
@@ -19,6 +21,55 @@ class PostDAOMySql implements PostDAO {
         $sql->bindValue(':created_at', $p->created_at);
         $sql->bindValue(':body', $p->body);
         $sql->execute();
+    }
+
+    public function getHomeFeed($id_user) {
+        $array = [];
+        // 1. Lista dos usuários que o Usuário segue.
+        $urDAO = new UserRelationDAOMySql($this->pdo);
+        $userList = $urDAO->getRelationsFrom($id_user);
+
+
+        //2. Pegar os Posts de quem o Usuário segue, ordenado pela data
+        $sql = $this->pdo->query("SELECT * FROM posts WHERE id_user IN (".implode(',', $userList).") ORDER BY created_at DESC");
+        if($sql->rowCount() > 0) {
+            $data = $sql->fetchAll(PDO::FETCH_ASSOC);
+            //3. Transformar os resultados em objetos.
+            $array = $this->_postListToObject($data, $id_user);
+        }
+
+        return $array;
+    }
+
+    private function _postListToObject($post_list, $id_user) {
+        $posts = [];
+        $userDAO = new UserDAOMySql($this->pdo);
+        foreach($post_list as $post_item) {
+            $newPost = new Post();
+            $newPost->id = $post_item['id'];
+            $newPost->type = $post_item['type'];
+            $newPost->created_at = $post_item['created_at'];
+            $newPost->body = $post_item['body'];
+            $newPost->mine = false;
+
+            if($post_item['id_user'] == $id_user) {
+                $newPost->mine = true;
+            }
+
+            // Pegar informações do usuário
+            $newPost->user = $userDAO->findById($post_item['id_user']);
+
+            // Informações sobre like
+            $newPost->likeCount = 0;
+            $newPost->liked = false;
+
+            // Informações sobre COMMENTS
+            $newPost->comments = [];
+
+            $posts[] = $newPost;
+        }
+
+        return $posts;
     }
 }
 

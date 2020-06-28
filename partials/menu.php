@@ -6,7 +6,7 @@
                             <img src="<?=$base;?>/assets/images/home-run.png" width="16" height="16" />
                         </div>
                         <div class="menu-item-text">
-                            Home
+                            Feed
                         </div>
                     </div>
                 </a>
