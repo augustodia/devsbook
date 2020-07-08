@@ -9,5 +9,7 @@ class Post {
 
 interface PostDAO {
     public function insert(Post $p);
+    public function getUserFeed($id);
     public function getHomeFeed($id);
+    public function getPhotosFrom($id);
 }   

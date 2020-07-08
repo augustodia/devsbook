@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Maio-2020 às 02:57
+-- Tempo de geração: 30-Jun-2020 às 02:27
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -77,8 +77,8 @@ CREATE TABLE `users` (
   `birth_date` date NOT NULL,
   `city` varchar(100) NOT NULL,
   `work` varchar(100) NOT NULL,
-  `avatar` varchar(100) NOT NULL,
-  `cover` varchar(100) NOT NULL,
+  `avatar` varchar(100) DEFAULT 'default.jpg',
+  `cover` varchar(100) NOT NULL DEFAULT 'default.jpg',
   `token` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
