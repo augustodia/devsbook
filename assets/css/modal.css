@@ -62,6 +62,12 @@
   transform: scale(1);
   transition: opacity 0.2s, transform 0.2s;
 }
+.modal-content {
+  width: 600px;
+}
+.modal-content img{
+  width: 100%;
+}
 
 a[rel="modal:close"] {
   position: absolute;

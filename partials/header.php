@@ -21,7 +21,8 @@ $firstName = current(explode(' ', $userInfo->name));
                 <div class="head-side-left">
                     <div class="search-area">
                         <form method="GET" action="<?=$base;?>/search.php">
-                            <input type="search" placeholder="Pesquisar" autocomplete="off" name="s" />
+                            <input type="search" placeholder="Pesquisar" value="<?php if(!empty($searchTerm)) { 
+                                echo $searchTerm;};?>" autocomplete="off" name="s"/>
                         </form>
                     </div>
                 </div>

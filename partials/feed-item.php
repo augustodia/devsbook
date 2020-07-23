@@ -23,9 +23,11 @@ switch($item->type) {
                 <br/>
                 <span class="fidi-date"><?=date('d/m/Y', strtotime($item->created_at));?></span>
             </div>
+            <?php if($item->user->id == $userInfo->id) :?>
             <div class="feed-item-head-btn">
                 <img src="<?=$base;?>/assets/images/more.png" />
             </div>
+            <?php endif;?>
         </div>
         <div class="feed-item-body mt-10 m-width-20">
             <?=nl2br($item->body);?>

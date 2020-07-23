@@ -68,6 +68,9 @@ header .head-side {
     padding-left:30px;
     transition: all .3s;
 }
+.search {
+    padding: 15px;
+} 
 ::placeholder {
     color:#A2B4C9;
 }
@@ -326,7 +329,7 @@ header .head-side {
 
 .friend-icon {
     text-align: center;
-    margin:10px 0;
+    margin:10px 10px 0 0;
 }
 .friend-icon a {
     text-decoration: none;
@@ -340,7 +343,7 @@ header .head-side {
     border-radius:50%;
 }
 .friend-icon-name {
-    width:60px;
+    width: 90%;
     font-size:14px;
     margin: auto;
     color:#224b7a;
@@ -393,6 +396,12 @@ header .head-side {
 }
 
 @media (max-width: 992px) {
+    nav {
+        justify-content: space-between;
+    }
+    nav a {
+        flex: 1;
+    }
     header .head-side-right {
         display:none !important;
     }
@@ -444,7 +453,14 @@ header .head-side {
     }
 
     .menu-item-text {
-        margin-right:5px;
+        display: none;
+    }
+    .menu-item-icon {
+        margin: 0 auto;
+    }
+    .menu-item-icon img {
+        width: 20px;
+        height: 20px;
     }
 
     .feed .side {
