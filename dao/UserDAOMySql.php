@@ -71,10 +71,12 @@ class UserDAOMySql implements UserDAO {
                 $data = $sql->fetch(PDO::FETCH_ASSOC);
                 $user = $this->generateUser($data);
                 return $user;
-
             }
+            return false;
+            
         }
-        return false;
+        
+        
     }
 
     public function findById($id, $full = false) {

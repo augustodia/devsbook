@@ -394,7 +394,51 @@ header .head-side {
 .full-user-photos .user-photo-item {
     margin:0;
 }
-
+.box.config {
+    padding: 20px;
+    width: 600px;
+}
+.box.config p {
+    margin-bottom: 5px;
+    color: red;
+}
+.config-form {
+    margin-top: 10px;
+}
+.config-form span {
+    color: red;
+}
+.config-form label {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+    width: 550px;;
+}
+.config-form input {
+    width: 550px;
+    max-width: 100%;
+    font-size: 14px;
+    padding: 8px;
+}
+.config-form .mini {
+    max-height: 100px;
+}
+.button {
+    border: 0;
+    padding: 15px 20px;
+    background-color: #4a76a8;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 15px;
+    cursor:pointer;
+}
+.button.config {
+    width: 550px;
+    max-width: 100%;
+}
+.bugfix {
+    margin-top:6px;
+}
 @media (max-width: 992px) {
     nav {
         justify-content: space-between;
