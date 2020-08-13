@@ -343,7 +343,7 @@ header .head-side {
     border-radius:50%;
 }
 .friend-icon-name {
-    width: 90%;
+    width: 60px;
     font-size:14px;
     margin: auto;
     color:#224b7a;
@@ -539,4 +539,12 @@ header .head-side {
         grid-template-columns: repeat(1, 1fr);
     }
 
+}
+@media (max-width: 639px) {
+    .box.config {
+        width: 355px;
+    }
+    .config-form input {
+        width: 310px;
+    }
 }
