@@ -1,7 +1,5 @@
 <?php
 
-
-
 class PostLike {
     public $id;
     public $id_post;
